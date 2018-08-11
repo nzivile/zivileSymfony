@@ -8,15 +8,19 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 
-class ArticleController extends Controller {
+class ArticleController extends Controller
+{
     /**
      * @Route("/")
      * @Method({"GET"})
      */
-    public function index(){
+    public function index()
+    {
         // return new Response
         // ('<html><body>testing</body></html>');
 
-        return $this->render('articles/index.html.twig');
+        $articles = ['Articles 1', 'Article2'];
+
+        return $this->render('articles/index.html.twig', array('articles' => $articles));
     }
 }
